@@ -2,23 +2,12 @@ import 'dotenv/config';
 import { DataSource } from 'typeorm';
 import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOptions';
 import { MysqlConnectionCredentialsOptions } from 'typeorm/driver/mysql/MysqlConnectionCredentialsOptions';
-//import Address from './models/Address';
+import Transactions from './models/Transactions';
+import migrations from './migrations';
 
-/*const {
-  CreateCustomers,
-  CreateUsers,
-  CreateAddresses,
-  CreatePackages,
-  CreateProducts,
-  CreateStock,
-  CreateOrderItems,
-  CreateOrders,
-  ChangeAddressComplementColumn,
-  DropAddressFkCustomers,
-  SetCustomerAdressIdNullable,
-  SetCustomerRgNullable,
-  CreateCustomerColumnBirthDate,
-} = migrations;*/
+const {
+  CreateTransactions
+} = migrations;
 
 const AppDataSource = new DataSource({
   type: process.env.DATABASE_TYPE as MysqlConnectionOptions['type'],
@@ -27,23 +16,11 @@ const AppDataSource = new DataSource({
   username: process.env.DATABASE_USERNAME,
   password: process.env.DATABASE_PASSWORD,
   database: process.env.DATABASE_NAME,
-  //entities: [Customer, Address, User],
+  entities: [Transactions],
   timezone: 'GMT%2B8',
-  /*migrations: [
-    CreateUsers,
-    CreateAddresses,
-    CreateCustomers,
-    CreatePackages,
-    CreateProducts,
-    CreateStock,
-    CreateOrderItems,
-    CreateOrders,
-    ChangeAddressComplementColumn,
-    DropAddressFkCustomers,
-    SetCustomerAdressIdNullable,
-    SetCustomerRgNullable,
-    CreateCustomerColumnBirthDate,
-  ],*/
+  migrations: [
+    CreateTransactions
+  ],
   subscribers: [],
 });
 
