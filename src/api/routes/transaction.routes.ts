@@ -1,15 +1,20 @@
 import { Segments, celebrate } from 'celebrate';
 import { Router } from 'express';
 import Joi from 'joi';
-/*import UserController from '../../controllers/User';
-import isAuthenticated from '../middlewares/isAuthenticated';*/
+import multer from "multer";
+import TransactionController from '../../controllers/Transactions';
+//import isAuthenticated from '../middlewares/isAuthenticated';
 
 const transactionsRouter = Router();
-//const userController = new UserController();
+const transactionController = new TransactionController();
 const maxLength = 255;
 const minLength = 6;
 
-const body = {
+const upload = multer({
+  dest: "./temp"
+});
+
+/*const body = {
   [Segments.BODY]: {
     firstName: Joi.string().min(minLength).max(maxLength).required(),
     lastName: Joi.string().min(minLength).max(maxLength).required(),
@@ -23,8 +28,9 @@ const body = {
     notification: Joi.boolean().required(),
     cpf: Joi.string().length(11).required(),
   },
-};
+};*/
 transactionsRouter.get('/', () => {console.log('teste')});
 //transactionsRouter.post('/', celebrate(body), userController.create);
 //transactionsRouter.get('/', isAuthenticated, userController.show);
+transactionsRouter.post('/', upload.single("file"), transactionController.import);
 export default transactionsRouter;
