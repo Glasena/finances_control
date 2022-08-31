@@ -6,7 +6,7 @@ import {
     UpdateDateColumn,
   } from 'typeorm';
   
-  @Entity('addresses')
+  @Entity('transactions')
   class TransactionModel {
     
     @PrimaryGeneratedColumn('uuid')
