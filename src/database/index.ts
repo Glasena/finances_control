@@ -22,6 +22,7 @@ const AppDataSource = new DataSource({
     CreateTransactions
   ],
   subscribers: [],
+  logging: true
 });
 
 AppDataSource.initialize()
