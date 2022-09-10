@@ -1,5 +1,5 @@
-import AppDataSource from '..';
-import Transactions from '../models/Transactions';
+import AppDataSource from '../..';
+import Transactions from '../../models/Transactions';
 
 const TransactionsRepository = AppDataSource.getRepository(Transactions).extend({
     async findByDate(IniDate?: Date, FinDate?: Date, Cred_deb?: String): Promise<Transactions[] | null> {

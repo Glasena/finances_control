@@ -1,7 +1,7 @@
 import fs from 'fs';
 import dateString from '../../../utils/dateString';
 import valueString from '../../../utils/valueString';
-import TransactionsRepository from '../../../src/database/repositories/transactions.repository';
+import TransactionsRepository from '../../database/repositories/Transactions/transactions.repository';
 const readline = require('readline');
 
 interface File {

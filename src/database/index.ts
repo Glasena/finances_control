@@ -3,10 +3,12 @@ import { DataSource } from 'typeorm';
 import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOptions';
 import { MysqlConnectionCredentialsOptions } from 'typeorm/driver/mysql/MysqlConnectionCredentialsOptions';
 import Transactions from './models/Transactions';
+import Users from './models/Users';
 import migrations from './migrations';
 
 const {
-  CreateTransactions
+  CreateTransactions,
+  CreateUsers
 } = migrations;
 
 const AppDataSource = new DataSource({
@@ -16,10 +18,11 @@ const AppDataSource = new DataSource({
   username: process.env.DATABASE_USERNAME,
   password: process.env.DATABASE_PASSWORD,
   database: process.env.DATABASE_NAME,
-  entities: [Transactions],
+  entities: [Transactions, Users],
   timezone: 'GMT%2B8',
   migrations: [
-    CreateTransactions
+    CreateTransactions,
+    CreateUsers
   ],
   subscribers: [],
   logging: true

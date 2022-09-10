@@ -29,8 +29,7 @@ const upload = multer({
     cpf: Joi.string().length(11).required(),
   },
 };*/
-transactionsRouter.get('/', transactionController.show);
-//transactionsRouter.post('/', celebrate(body), userController.create);
-//transactionsRouter.get('/', isAuthenticated, userController.show);
+
+transactionsRouter.post('/search', transactionController.show);
 transactionsRouter.post('/', upload.single("file"), transactionController.import);
 export default transactionsRouter;
