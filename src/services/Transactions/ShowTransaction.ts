@@ -1,4 +1,4 @@
-import TransactionsRepository from '../../../src/database/repositories/transactions.repository';
+import TransactionsRepository from '../../database/repositories/Transactions/transactions.repository';
 import AppError from '../../../src/api/errors/AppError';
 const readline = require('readline');
 
