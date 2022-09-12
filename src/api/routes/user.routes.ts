@@ -2,17 +2,13 @@ import { Segments, celebrate } from 'celebrate';
 import { Router } from 'express';
 import Joi from 'joi';
 import multer from "multer";
-import TransactionController from '../../controllers/Transactions';
+import UserController from '../../controllers/Users';
 //import isAuthenticated from '../middlewares/isAuthenticated';
 
-const transactionsRouter = Router();
-const transactionController = new TransactionController();
+const userRouter = Router();
+const userController = new UserController();
 const maxLength = 255;
 const minLength = 6;
-
-const upload = multer({
-  dest: "./temp"
-});
 
 /*const body = {
   [Segments.BODY]: {
@@ -30,5 +26,5 @@ const upload = multer({
   },
 };*/
 
-transactionsRouter.post('/', upload.single("file"), transactionController.import);
-export default transactionsRouter;
+userRouter.post('/', userController.create);
+export default userRouter;

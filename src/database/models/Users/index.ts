@@ -7,7 +7,7 @@ import {
   } from 'typeorm';
   
   @Entity('users')
-  class TransactionModel {
+  class UserModel {
     
     @PrimaryGeneratedColumn('uuid')
     id: string;
@@ -32,5 +32,5 @@ import {
     
   }
   
-  export default TransactionModel;
+  export default UserModel;
   
