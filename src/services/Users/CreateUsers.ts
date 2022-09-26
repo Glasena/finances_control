@@ -1,5 +1,5 @@
 import UsersRepository from '../../database/repositories/Users/users.repository';
-
+import bcrypt from 'bcrypt';
 interface Request {
     name: string;
     username: string;
@@ -11,11 +11,13 @@ class CreateUsers {
 
     public async execute({ name, username, email, password }: Request) {
 
+        const hash = await bcrypt.hash(password, 256);
+
         const transaction = await UsersRepository.create({
             name,
             username,
             email,
-            password
+            password: hash
         });
 
         await UsersRepository.save(transaction);
