@@ -6,30 +6,31 @@ import {
     UpdateDateColumn,
   } from 'typeorm';
   
-  @Entity('transactions')
-  class TransactionModel {
+  @Entity('users')
+  class UserModel {
     
     @PrimaryGeneratedColumn('uuid')
     id: string;
-    
+
     @Column()
-    value: number;
-  
+    name: string;
+
     @Column()
-    description: string;
-  
+    username: string;
+
     @Column()
-    date: Date;
-  
+    email: string;
+
     @Column()
-    cred_deb: string;
+    password: string;
 
     @CreateDateColumn()
     created_at: Date;
   
     @UpdateDateColumn()
     updated_at: Date;
+    
   }
   
-  export default TransactionModel;
+  export default UserModel;
   
