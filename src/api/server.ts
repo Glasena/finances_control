@@ -6,7 +6,7 @@ import 'dotenv/config';
 import 'reflect-metadata';
 import 'express-async-errors';
 import routes from './routes';
-//import errorHandler from './middlewares/errorHandler';
+import errorHandler from './middlewares/errorHandler';
 
 const app = express();
 const port = process.env.PORT;
@@ -16,7 +16,7 @@ app.use(express.json());
 
 app.use(routes);
 app.use(errors());
-//app.use(errorHandler);
+app.use(errorHandler);
 
 app.listen(port, () => {
   console.log(`App listening on port: ${port}!`);
