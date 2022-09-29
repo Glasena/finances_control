@@ -3,6 +3,7 @@ import { Router } from 'express';
 import Joi from 'joi';
 import multer from "multer";
 import TransactionController from '../../controllers/Transactions';
+import auth from '../middlewares/ensureAuthenticated';
 //import isAuthenticated from '../middlewares/isAuthenticated';
 
 const transactionsRouter = Router();
@@ -30,6 +31,6 @@ const upload = multer({
   },
 };*/
 
-transactionsRouter.post('/search', transactionController.show);
+transactionsRouter.post('/search', auth, transactionController.show);
 transactionsRouter.post('/', upload.single("file"), transactionController.import);
 export default transactionsRouter;
