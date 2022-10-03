@@ -1,12 +1,12 @@
-import { errors } from 'celebrate';
-import express from 'express';
-import cors from 'cors';
-import 'dotenv/config';
+import { errors } from "celebrate";
+import express from "express";
+import cors from "cors";
+import "dotenv/config";
 //import routes from './routes';
-import 'reflect-metadata';
-import 'express-async-errors';
-import routes from './routes';
-import errorHandler from './middlewares/errorHandler';
+import "reflect-metadata";
+import "express-async-errors";
+import routes from "./routes";
+import errorHandler from "./middlewares/errorHandler";
 
 const app = express();
 const port = process.env.PORT;
