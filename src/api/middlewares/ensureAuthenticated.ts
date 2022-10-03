@@ -10,8 +10,8 @@ interface IPayload {
 
 export default async function ensureAuthenticated(req: Request, res: Response, next: NextFunction){
 
-    const authHeader = req.headers.authorization 
-    const jwtKey = process.env.JWT_KEY 
+    const authHeader = req.headers.authorization;
+    const jwtKey = process.env.JWT_KEY!; 
 
     if (!authHeader) {
         throw new AppError('Token is required', 401);
@@ -24,8 +24,6 @@ export default async function ensureAuthenticated(req: Request, res: Response, n
     console.log(token)
 
     const { sub: user_id } = jwt.verify(token, jwtKey) as IPayload   
-
-    console.log(user_id)
 
     const user = await UsersRepository.findById(user_id);
 

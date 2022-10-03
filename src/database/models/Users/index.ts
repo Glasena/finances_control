@@ -1,36 +1,33 @@
 import {
-    Column,
-    CreateDateColumn,
-    Entity,
-    PrimaryGeneratedColumn,
-    UpdateDateColumn,
-  } from 'typeorm';
-  
-  @Entity('users')
-  class UserModel {
-    
-    @PrimaryGeneratedColumn('uuid')
-    id: string;
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from "typeorm";
 
-    @Column()
-    name: string;
+@Entity("users")
+class UserModel {
+  @PrimaryGeneratedColumn("uuid")
+  id: string;
 
-    @Column()
-    username: string;
+  @Column()
+  name: string;
 
-    @Column()
-    email: string;
+  @Column()
+  username: string;
 
-    @Column()
-    password: string;
+  @Column()
+  email: string;
 
-    @CreateDateColumn()
-    created_at: Date;
-  
-    @UpdateDateColumn()
-    updated_at: Date;
-    
-  }
-  
-  export default UserModel;
-  
+  @Column()
+  password: string;
+
+  @CreateDateColumn()
+  created_at: Date;
+
+  @UpdateDateColumn()
+  updated_at: Date;
+}
+
+export default UserModel;
