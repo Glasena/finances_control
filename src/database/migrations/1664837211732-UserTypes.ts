@@ -14,6 +14,11 @@ export default class CreateUserTypes1662579497072 implements MigrationInterface 
             default: '(uuid())',
           },
           {
+            name: 'usertype',
+            type: 'integer',
+            isUnique: true,
+          },
+          {
             name: 'description',
             type: 'varchar',
           },

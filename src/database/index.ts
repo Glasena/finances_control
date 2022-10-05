@@ -6,7 +6,7 @@ import Transactions from './models/Transactions';
 import Users from './models/Users';
 import migrations from './migrations';
 
-const { CreateTransactions, CreateUsers, UserTypes } = migrations;
+const { CreateTransactions, CreateUsers, UserTypes, InsertTypeAdmin } = migrations;
 
 const AppDataSource = new DataSource({
   type: process.env.DATABASE_TYPE as MysqlConnectionOptions['type'],
@@ -17,7 +17,7 @@ const AppDataSource = new DataSource({
   database: process.env.DATABASE_NAME,
   entities: [Transactions, Users],
   timezone: 'GMT%2B8',
-  migrations: [CreateTransactions, CreateUsers, UserTypes],
+  migrations: [CreateTransactions, CreateUsers, UserTypes, InsertTypeAdmin],
   subscribers: [],
   logging: true,
 });
